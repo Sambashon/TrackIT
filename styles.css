@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.josefin-sans {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header{
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    background-color: #081b34;
+}
+nav {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: row; 
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-weight: 300;
+    align-items: center;
+}
+
+nav .logo{
+    display: flex;
+    align-items: center;
+    margin-right: 60rem;
+}
+
+.logo img{
+    height: 15rem;
+    width: auto;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+li{
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+nav .buttons{
+    position: absolute;
+    top: 1rem;
+    right: 0.75rem;
+}
+
+nav button{
+  background: #1F3D64;
+  border-radius: 1rem;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;       
+  outline: none;
+  
+  width: 10rem;
+  height: 3rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+  font-weight: 600;
+}
+
+aside button{
+  background: #1F3D64;
+  border-radius: 1rem;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;       
+  outline: none;
+  
+  width: 15rem;
+  height: 3rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+  font-weight: 600;
+}
+
+aside{
+    overflow: hidden;
+    font-family: "Josefin Sans", sans-serif;
+    color: white;
+    background-color: #081b34;
+    height: 60rem;
+    width: 20vw;
+}
+
+aside .title{
+    justify-self: center;
+    background-color: #061529;
+    width: 70%;
+    height: 5vh;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    height: 90vh;
+}
+
+.stuff{
+    flex: 1;
+    padding: 2rem;
+    background-color: white;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.manager{
+    justify-self: center;
+    flex: 1;
+    height: 30vh;
+    width: 17vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.manager button{
+    margin-bottom: 2rem;
+}
+
+section h1{
+    margin-bottom: 1rem;
+}
+
+
+/*Created by js*/
+
+.box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: #1f3d64;
+  color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  height: fit-content;
+}
+
+.boxNameInput {
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  width: min-content;
+}
+
+
+.box p{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    height: fit-content;
+    width: fit-content;
+    background-color: #061529;
+    border-radius: 50%;
+
+    width: 1.5rem;
+    height: 1.5rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.pencilButton{
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
