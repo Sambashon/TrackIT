@@ -12,7 +12,7 @@
   font-style: normal;
 }
 
-header{
+.oldHeader{
     overflow: hidden;
     top: 0;
     left: 0;
@@ -21,6 +21,7 @@ header{
     background-color: #081b34;
 }
 nav {
+    user-select: none;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -43,7 +44,7 @@ nav .logo{
     width: auto;
 }
 
-ul{
+header ul{
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -51,7 +52,7 @@ ul{
     margin-left: 0;
 }
 
-li{
+header li{
     margin-right: 1rem;
     text-decoration: none;
 }
@@ -77,6 +78,9 @@ nav button{
   font-family: "Josefin Sans", sans-serif;
   font-size: large;
   font-weight: 600;
+}
+aside{
+    user-select: none;
 }
 
 aside button{
@@ -108,7 +112,8 @@ aside{
 aside .title{
     justify-self: center;
     background-color: #061529;
-    width: 70%;
+    padding: 1rem;
+    width: fit-content;
     height: 5vh;
     border-radius: 1rem;
     display: flex;
@@ -121,6 +126,9 @@ main{
     height: 90vh;
 }
 
+.stuffTitle{
+  user-select: none;
+}
 .stuff{
     flex: 1;
     padding: 2rem;
@@ -143,38 +151,49 @@ main{
     margin-bottom: 2rem;
 }
 
-section h1{
+
+/*Created by js*/
+
+
+.box ul{
+    margin-top: 0.5rem;
+    margin-left: 2rem;
     margin-bottom: 1rem;
 }
 
+.box li{
+    text-decoration: none;
+}
 
-/*Created by js*/
 
 .box {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: #1f3d64;
   color: white;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   border-radius: 1rem;
   font-size: 1.2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 80%;
+  min-height: 5rem;
   height: fit-content;
 }
 
 .boxNameInput {
+  font-family: inherit;
   font-size: 1.1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  height: 2rem;
+  width: 5rem;
   border: none;
   width: min-content;
 }
 
-
-.box p{
+.xButton{
     position: absolute;
     top: 0.5rem;
     right: 0.75rem;
@@ -187,6 +206,7 @@ section h1{
     height: 1.5rem;
     
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     justify-items: center;
@@ -196,4 +216,41 @@ section h1{
 .pencilButton{
     margin-right: 0.5rem;
     cursor: pointer;
+    height: 1rem;
+}
+
+.addItemButton{
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.75rem;
+
+    width: fit-content;
+    height: 1rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.boxheader{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.itemContainerInput{
+  margin: 1rem;
+  font-family: inherit;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  height: 2rem;
+  width: 5rem;
+  border: none;
+  width: min-content;
 }

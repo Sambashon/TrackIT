@@ -15,34 +15,84 @@ document.querySelector(".AddButton").addEventListener("click", () => {
     newX.classList.add("xButton");
 
     const newPencil = document.createElement("span");
-    newPencil.textContent = "✎"
+    newPencil.textContent = "✎";
     newPencil.classList.add("pencilButton");
     
-    //seteo los padres de los elementos
-    newBox.appendChild(newPencil);
-    newBox.appendChild(nameInput);
-    newBox.appendChild(newX);
-    rightside.appendChild(newBox);
+    const newItemButton = document.createElement("span");
+    newItemButton.textContent = "+ Agregar Item";
+    newItemButton.classList.add("addItemButton");
+
     
+
+    const itemList = document.createElement("ul");
+    itemList.classList.add("itemList");
+
+    const newHeader = document.createElement("header");
+    newHeader.classList.add("boxheader");
+
+
+    //seteo los padres de los elementos
+    newBox.appendChild(newHeader);
+    newHeader.appendChild(newPencil);
+    newHeader.appendChild(nameInput);
+    newBox.appendChild(newX);
+    newBox.appendChild(newItemButton);
+    newBox.appendChild(itemList);
+
+    rightside.appendChild(newBox);
     nameInput.focus();
 
     function replaceInputWithTitle() {
         const newTitle = document.createElement("h1");
         newTitle.textContent = nameInput.value.trim() || "Caja sin nombre";
-        newBox.replaceChild(newTitle, nameInput);
+        newHeader.replaceChild(newTitle, nameInput);
 
         //editar con click de lapiz
         newPencil.addEventListener("click", () => {
-            newBox.replaceChild(nameInput, newTitle);
+            newHeader.replaceChild(nameInput, newTitle);
             nameInput.value = newTitle.textContent;
             nameInput.focus();
         });
         //reeditable con doble click
         newTitle.addEventListener("dblclick", () => {
-            newBox.replaceChild(nameInput, newTitle);
+            newHeader.replaceChild(nameInput, newTitle);
             nameInput.value = newTitle.textContent;
             nameInput.focus();
         });
+    }
+
+    function itemInput(){
+        const itemContainerInput = document.createElement("input");
+        itemContainerInput.type = "text";
+        itemContainerInput.placeholder = "Nombre de item";
+        itemContainerInput.classList.add("itemContainerInput");
+
+        itemList.appendChild(itemContainerInput);
+
+        itemContainerInput.focus();
+
+
+        itemContainerInput.addEventListener("keydown", (e) => {
+            const newItem = document.createElement("li");
+            newItem.textContent = itemContainerInput.value.trim() || "Item sin nombre";
+            if(e.key === "Enter"){
+                itemList.replaceChild(newItem, itemContainerInput);
+
+                //Doble clcick
+            }
+        });
+        itemContainerInput.addEventListener("blur", () => {
+            console.log("Blur is working");
+            const newItem = document.createElement("li"); //ERA ESTOOOOO AAAAAAAAAAAAAAAGHHHHHHHHHH ME OLVIDE DE CREAR EL ELEMENT Y POR ESO NO FUNCABA SEBA NO TE OLVIDES
+            newItem.textContent = itemContainerInput.value.trim() || "Item sin nombre";
+            itemList.replaceChild(newItem, itemContainerInput);
+
+            newItem.addEventListener("dblclick", () => {
+                itemList.replaceChild(itemContainerInput, newItem);
+                itemContainerInput.value = newItem.textContent;
+                itemContainerInput.focus();
+            });
+        });  
     }
 
     nameInput.addEventListener("keydown", (e) => {//e es basicamente cualquier tecla que yo haya apretado
@@ -57,5 +107,9 @@ document.querySelector(".AddButton").addEventListener("click", () => {
 
     newX.addEventListener("click", () => {
         newBox.remove();
+    });
+
+    newItemButton.addEventListener("click", () => {
+        itemInput();
     });
 });
