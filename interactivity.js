@@ -62,37 +62,54 @@ document.querySelector(".AddButton").addEventListener("click", () => {
     }
 
     function itemInput(){
+        const itemRow = document.createElement("div");
+        itemRow.classList.add("itemRow");
+
+
+        const deleteItemButton = document.createElement("img");
+        deleteItemButton.alt = "deleteItem";
+        deleteItemButton.src = 'Resources/bin.png';
+        deleteItemButton.classList.add("deleteitembutton");
+
         const itemContainerInput = document.createElement("input");
         itemContainerInput.type = "text";
         itemContainerInput.placeholder = "Nombre de item";
         itemContainerInput.classList.add("itemContainerInput");
 
-        itemList.appendChild(itemContainerInput);
+        itemList.appendChild(itemRow);
+        itemRow.appendChild(itemContainerInput);
 
         itemContainerInput.focus();
-
 
         itemContainerInput.addEventListener("keydown", (e) => {
             const newItem = document.createElement("li");
             newItem.textContent = itemContainerInput.value.trim() || "Item sin nombre";
             if(e.key === "Enter"){
-                itemList.replaceChild(newItem, itemContainerInput);
-
-                //Doble clcick
+                
+                itemRow.replaceChild(newItem, itemContainerInput);
+                itemRow.appendChild(deleteItemButton);
             }
         });
         itemContainerInput.addEventListener("blur", () => {
             console.log("Blur is working");
             const newItem = document.createElement("li"); //ERA ESTOOOOO AAAAAAAAAAAAAAAGHHHHHHHHHH ME OLVIDE DE CREAR EL ELEMENT Y POR ESO NO FUNCABA SEBA NO TE OLVIDES
             newItem.textContent = itemContainerInput.value.trim() || "Item sin nombre";
-            itemList.replaceChild(newItem, itemContainerInput);
 
+            itemRow.replaceChild(newItem, itemContainerInput);
+            itemRow.appendChild(deleteItemButton);
+            
             newItem.addEventListener("dblclick", () => {
-                itemList.replaceChild(itemContainerInput, newItem);
+                deleteItemButton.remove();
+                itemRow.replaceChild(itemContainerInput, newItem);
                 itemContainerInput.value = newItem.textContent;
                 itemContainerInput.focus();
             });
-        });  
+        });
+        
+        deleteItemButton.addEventListener("click", () => {
+            deleteItemButton.parentElement.remove();
+        });
+
     }
 
     nameInput.addEventListener("keydown", (e) => {//e es basicamente cualquier tecla que yo haya apretado
@@ -106,7 +123,10 @@ document.querySelector(".AddButton").addEventListener("click", () => {
     });
 
     newX.addEventListener("click", () => {
-        newBox.remove();
+        const confirmation = confirm("Seguro desea eliminar la caja?");
+        if (confirmation){
+            newBox.remove();
+        }  
     });
 
     newItemButton.addEventListener("click", () => {
