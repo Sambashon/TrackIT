@@ -79,9 +79,6 @@ nav button{
   font-size: large;
   font-weight: 600;
 }
-aside{
-    user-select: none;
-}
 
 aside button{
   background: #1F3D64;
@@ -101,11 +98,12 @@ aside button{
 }
 
 aside{
+    user-select: none;
     overflow: hidden;
     font-family: "Josefin Sans", sans-serif;
     color: white;
     background-color: #081b34;
-    height: 60rem;
+    height: 100%;
     width: 20vw;
 }
 
@@ -123,17 +121,19 @@ aside .title{
 
 main{
     display: flex;
-    height: 90vh;
+     height: calc(100vh - 5rem);
 }
 
 .stuffTitle{
   user-select: none;
 }
 .stuff{
-    flex: 1;
-    padding: 2rem;
-    background-color: white;
     font-family: "Josefin Sans", sans-serif;
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .manager{
@@ -229,7 +229,7 @@ main{
     cursor: pointer;
 }
 
-.pencilButton{
+.pencilButton{  
     user-select: none;
     margin-right: 0.5rem;
     cursor: pointer;
